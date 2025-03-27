@@ -1,6 +1,6 @@
 import HomePage from "@/components/layout/homepage";
-
-export default function Home() {
+import { auth } from "@/auth";
+export default async function Home() {
   return (
     <div>
       <HomePage />
