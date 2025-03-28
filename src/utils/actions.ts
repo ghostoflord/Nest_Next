@@ -1,5 +1,7 @@
-'user server'
-import { signIn } from "@/auth";
+
+'use server'
+import { auth, signIn } from "@/auth";
+
 
 export async function authenticate(username: string, password: string) {
     try {
@@ -9,6 +11,7 @@ export async function authenticate(username: string, password: string) {
             // callbackUrl: "/",
             redirect: false,
         })
+        console.log(">>> check r: ", r)
         return r;
     } catch (error) {
         if ((error as any).name === "InvalidEmailPasswordError") {
@@ -31,3 +34,4 @@ export async function authenticate(username: string, password: string) {
 
     }
 }
+
